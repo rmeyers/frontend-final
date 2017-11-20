@@ -10,6 +10,39 @@ height: 100%;
 position: relative;
 }
 
+/* Hamburger Menu */
+.hamContainer {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.bar1, .bar2, .bar3 {
+    background-color: #333;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    -ms-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    -ms-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
 input {
 font-size: 12px;
 }
@@ -31,9 +64,17 @@ border: none;
 #map {
 bottom:0px;
 height: 100%;
-left: 362px;
 position: absolute;
 right: 0px;
+width: 100%;
+}
+
+.map-right {
+    left: 362px;
+}
+
+.map-left {
+    left: 57px;
 }
 
 .options-box {
@@ -45,6 +86,12 @@ line-height: 35px;
 padding: 10px 10px 30px 10px;
 text-align: left;
 width: 340px;
+z-index: 1;
+}
+
+.closed {
+height: 20px;
+width: 35px;
 }
 
 .text {

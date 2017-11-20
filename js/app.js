@@ -24,6 +24,14 @@ function ViewModel() {
   // Create the variables for locationList and the searchTerm
   this.locationList = ko.observableArray([]);
   this.searchTerm = ko.observable('');
+  this.visibleSetting = ko.observable(true);
+  this.closedOrOpen = ko.observable(false);
+
+  // If screen size is small, start with hamburger menu closed.
+  if (window.screen.availWidth < 550) {
+    this.visibleSetting = ko.observable(false);
+    this.closedOrOpen = ko.observable(true);
+  }
 
   // Create the map using the coords for the center of Toronto
   map = new google.maps.Map(document.getElementById('map'), {
@@ -60,6 +68,11 @@ function ViewModel() {
       return updatedList;
     }
   });
+}
+
+function clickMe() {
+    this.visibleSetting(!this.visibleSetting());
+    this.closedOrOpen(!this.visibleSetting());
 }
 
 // This function creates the marker for each location, as well as the content for the marker.
@@ -128,6 +141,7 @@ function Marker(location) {
     google.maps.event.trigger(this.marker, 'click');
   };
 }
+
 
 // Function to be run on page load which links the model to the view.
 var initApp = function() {
