@@ -1,4 +1,5 @@
 
+
 // This is the list of all the cafes in Toronto that I want to include in this tool
 var locations = [
     {title : 'Cafe Plenty',
@@ -116,16 +117,22 @@ function Marker(location) {
       + '<div>' + self.address2 + '</div>'
       + '<div><i>FourSquare Checkins: </i>' + self.checkins + '</div>';
     self.infoWindow.setContent(self.windowContent);
+    self.marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function() {
+      self.marker.setAnimation(null);
+    }, 1450);
     self.infoWindow.open(map, this);
   });
+
+  this.bounce = function(place) {
+    google.maps.event.trigger(this.marker, 'click');
+  };
 }
 
 // Function to be run on page load which links the model to the view.
 var initApp = function() {
   ko.applyBindings(new ViewModel());
 };
-
-
 
 
 
