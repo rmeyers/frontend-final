@@ -98,7 +98,7 @@ function Marker(location) {
     var results = data.response.venues[0];
     self.address1 = results.location.formattedAddress[0] || "No address found";
     self.address2 = results.location.formattedAddress[1] || "";
-    self.checkins = results.stats.checkinsCount || 0;
+    self.checkins = results.stats.checkinsCount || "No count found";
   }).fail(function() {
     alert("FourSquare API call error. Try again.");
   });
