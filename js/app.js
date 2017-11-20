@@ -96,9 +96,9 @@ function Marker(location) {
   // Run the AJAX call using JQuery to get the Four Square results.
   $.getJSON(foursquareURL).done(function(data) {
     var results = data.response.venues[0];
-    self.address1 = results.location.formattedAddress[0];
-    self.address2 = results.location.formattedAddress[1];
-    self.checkins = results.stats.checkinsCount;
+    self.address1 = results.location.formattedAddress[0] || "No address found";
+    self.address2 = results.location.formattedAddress[1] || "";
+    self.checkins = results.stats.checkinsCount || 0;
   }).fail(function() {
     alert("FourSquare API call error. Try again.");
   });
@@ -149,6 +149,8 @@ var initApp = function() {
 };
 
 
-
+var errorAlert = function() {
+  alert("Google Maps did not load properly.");
+};
 
 
