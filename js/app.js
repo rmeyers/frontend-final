@@ -112,10 +112,10 @@ function Marker(location) {
 
   // Add a listener to the marker so that a click event shows the info window.
   this.marker.addListener('click', function(){
-    self.windowContent = '<div><strong>' + self.title + '</strong></div>'
-      + '<div><i>Address:</i> ' + self.address1 + '</div>'
-      + '<div>' + self.address2 + '</div>'
-      + '<div><i>FourSquare Checkins: </i>' + self.checkins + '</div>';
+    self.windowContent = '<div><strong>' + self.title + '</strong></div>' +
+      '<div><i>Address:</i> ' + self.address1 + '</div>' +
+      '<div>' + self.address2 + '</div>' +
+      '<div><i>FourSquare Checkins: </i>' + self.checkins + '</div>';
     self.infoWindow.setContent(self.windowContent);
     self.marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function() {
